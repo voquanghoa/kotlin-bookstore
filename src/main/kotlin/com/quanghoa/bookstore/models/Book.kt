@@ -12,4 +12,6 @@ data class Book(
         val id: Int,
         val title: String,
         val year: Int
-)
+){
+        constructor():this(0, "", 0)
+}
