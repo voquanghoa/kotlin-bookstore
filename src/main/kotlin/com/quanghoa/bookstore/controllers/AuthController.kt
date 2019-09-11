@@ -5,7 +5,6 @@ import com.quanghoa.bookstore.models.dto.Login
 import com.quanghoa.bookstore.models.dto.Token
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.AuthenticationManager
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -23,18 +22,9 @@ class AuthController(
 
     @PostMapping
     fun login(@RequestBody login: Login): Token {
-        try {
-            val authentication = authenticationManager.authenticate(
-                    UsernamePasswordAuthenticationToken(
-                            login.username,
-                            login.password
-                    )
-            )
-            SecurityContextHolder.getContext().authentication = authentication
-            val token = jwtTokenUtil.generateToken(authentication)
-            return Token(token)
-        }catch (ex: Exception){
-            return Token("112")
-        }
+        val authentication = authenticationManager.authenticate(login.asObject())
+        SecurityContextHolder.getContext().authentication = authentication
+
+        return Token(jwtTokenUtil.generateToken(authentication))
     }
 }

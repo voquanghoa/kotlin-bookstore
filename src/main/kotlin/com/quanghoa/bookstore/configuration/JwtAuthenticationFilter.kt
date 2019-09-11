@@ -33,8 +33,6 @@ class JwtAuthenticationFilter(
             } catch (e: ExpiredJwtException) {
                 logger.warn("the token is expired and not valid anymore", e)
             }
-        } else {
-            logger.warn("couldn't find bearer string, will ignore the header")
         }
 
         if (username != null && username.any() && SecurityContextHolder.getContext().authentication == null) {
