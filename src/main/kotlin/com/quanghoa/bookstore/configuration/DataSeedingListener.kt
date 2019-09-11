@@ -30,7 +30,7 @@ class DataSeedingListener(
                                  vararg roles: String) {
         if (userRepository.findByUsername(username) == null) {
             val encodedPassword = BCryptPasswordEncoder().encode(password)
-            val user = User(0, username, fullName, encodedPassword)
+            val user = User(0, username, encodedPassword, fullName)
 
             for (role in roles) {
                 user.roles.add(roleRepository.findByName(role)!!)
