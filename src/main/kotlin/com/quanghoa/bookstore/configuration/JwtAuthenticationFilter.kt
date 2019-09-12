@@ -29,7 +29,7 @@ class JwtAuthenticationFilter(
             try {
                 username = jwtTokenUtil.getUsernameFromToken(authToken)
             } catch (e: IllegalArgumentException) {
-                logger.error("an error occured during getting username from token", e)
+                logger.error("an error occurred during getting username from token", e)
             } catch (e: ExpiredJwtException) {
                 logger.warn("the token is expired and not valid anymore", e)
             }

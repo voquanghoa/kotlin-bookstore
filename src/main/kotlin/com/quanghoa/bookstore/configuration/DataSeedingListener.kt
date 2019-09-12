@@ -41,8 +41,8 @@ class DataSeedingListener(
     }
 
     override fun onApplicationEvent(event: ContextRefreshedEvent) {
-        addRoleIfMissing("ROLE_ADMIN", "Administrators")
-        addRoleIfMissing("ROLE_MEMBER", "Members")
+        addRoleIfMissing(Constants.ROLE_ADMIN, "Administrators")
+        addRoleIfMissing(Constants.ROLE_MEMBER, "Members")
 
         addUserIfMissing("user", "456", "User", "ROLE_MEMBER")
         addUserIfMissing("admin", "1234", "Admin", "ROLE_MEMBER", "ROLE_ADMIN")

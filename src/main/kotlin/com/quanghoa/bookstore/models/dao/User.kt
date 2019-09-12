@@ -2,10 +2,6 @@ package com.quanghoa.bookstore.models.dao
 
 import java.util.*
 import javax.persistence.*
-import kotlin.collections.HashSet
-import javax.persistence.JoinColumn
-
-
 
 @Entity
 @Table(name = "Users")
