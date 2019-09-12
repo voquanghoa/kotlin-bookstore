@@ -54,10 +54,9 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
                 .cors()
                 .and().csrf().disable()
                 .authorizeRequests()
-
-                .antMatchers(HttpMethod.POST, "/api/auth/**")
-                .permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/csrf").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/auth/**").permitAll()
+                .antMatchers("/api/**").authenticated()
 
         http
                 .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter::class.java)
