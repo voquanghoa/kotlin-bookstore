@@ -1,4 +1,4 @@
-package com.quanghoa.bookstore.models
+package com.quanghoa.bookstore.models.dao
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue

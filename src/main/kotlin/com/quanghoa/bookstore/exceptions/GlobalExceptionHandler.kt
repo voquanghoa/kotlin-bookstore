@@ -7,13 +7,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.context.request.ServletWebRequest
 
-data class ErrorModel(
-    val message: String,
-    val path: String
-)
 
 @ControllerAdvice
-class BadCredentialsExceptionHandler {
+class ExceptionHandler {
 
     @ExceptionHandler(BadCredentialsException::class)
     fun handleException(ex: BadCredentialsException, request: ServletWebRequest): ResponseEntity<ErrorModel> {

@@ -1,5 +1,5 @@
 package com.quanghoa.bookstore.exceptions
 
-import java.lang.Exception
+import java.lang.RuntimeException
 
-class BadRequestException(message: String) : Exception(message)
+class BadRequestException(message: String) : RuntimeException(message)
